@@ -36,7 +36,6 @@ const userSchema = new Schema(
       // User's Badge number
       badgeNumber: {
           type: Number,
-          required: [true, "Please provide your badge number."]
       },
 
       // Image of User

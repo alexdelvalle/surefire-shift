@@ -1,0 +1,38 @@
+<h2> Sign Up </h2>
+
+<% if (typeof errorMessage !== "undefined") { %>
+  <p class="error-message"> <%= errorMessage %> </p>
+<% } %>
+
+<form id="form" method="post" action="/process-signup">
+
+  <label for="full-name-input"> Enter your full name: </label>
+  <input id="full-name-input" type="text" placeholder="e.g. Rudy Perez" name="signupFullName" />
+  <br />
+
+  <label for="email-input"> What's your email address? </label>
+  <input id="email-input" type="email" placeholder="e.g. rudy@gmail.com" name="signupEmail" />
+  <br />
+
+  <label for="password-input"> Choose a password: </label>
+  <input id="password-input" type="password" placeholder="e.g. fire1234!" name="signupPassword" />
+  <br />
+
+  <label for="rank-input"> What is your Rank? </label>
+  <input id="rank-input" type="text" placeholder="e.g. Firefighter" name="signupRank" />
+  <br />
+
+  <label for="shift-input"> What shift do you currently work on? </label>
+  <input id="shift-input" type="text" placeholder="e.g. C" name="signupShift" />
+  <br />
+
+  <label for="rest-day-input"> What R-day do you currently hold? </label>
+  <input id="rest-day-input" type="text" placeholder="e.g. Wednesday" name="signupRestDay" />
+  <br />
+
+  <button> Sign Me Up! </button>
+</form>
+
+<p> Already have an account?
+  <a href="/login"> Log In! </a>
+</p>

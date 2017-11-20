@@ -20,7 +20,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Shiftly';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -39,10 +39,17 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use( (req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // ROUTES --------------------------------
 const index = require('./routes/index');
 app.use('/', index);
+
+const myUserRouter = require('./routes/user-router');
+app.use(myUserRouter);
 // ---------------------------------------
 
 // catch 404 and forward to error handler
