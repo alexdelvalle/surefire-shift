@@ -7,17 +7,17 @@ const router    = express.Router();
 const UserModel = require("../models/user-model");
 
 
-// ROUTES ----------------------------------------------------------
-
-// Sign up Form ----------------------------------------------------
+// ROUTES ---------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+// Sign up Form ---------------------------------------------------------------
 router.get("/signup", (req, res, next) => {
     if (req.user) {
         res.redirect("/");
     }
     res.render("user-views/user-signup");
 });
-// ------------------------------------------------------------------
-// Process sign up form ---------------------------------------------
+// ----------------------------------------------------------------------------
+// Process sign up form -------------------------------------------------------
 router.post("/process-signup", (req, res, next) => {
     // If the password is less than 8 characters
     // and has special characters, return an error.
@@ -62,6 +62,93 @@ router.post("/process-signup", (req, res, next) => {
           next(err);
       });
 
+});
+// ----------------------------------------------------------------------------
+// Email Login
+router.get("/login", (req, res, next) => {
+    if (req.user) {
+        res.redirect("/");
+        return;
+      }
+    res.render("user-views/user-login");
+});
+// ----------------------------------------------------------------------------
+// Process login form
+router.post("/process-login", (req, res, next) => {
+
+    // Check to see if user email exists
+    UserModel.findOne( {email: req.body.loginEmail} )
+      .then( (userFromDb) => {
+
+          // If user email does not exist, show error
+          if(userFromDb === null) {
+              res.locals.errorMessage = "Wrong Email!";
+              res.render("user-views/user-login");
+              return;
+          }
+
+          const passwordSuccess = bcrypt.compareSync(req.body.loginPassword, userFromDb.encryptedPassword);
+
+          // If password is incorrect, show error
+          if (passwordSuccess === false) {
+            res.locals.errorMessage = "Wrong password! Try again.";
+            res.render("user-views/user-login");
+
+            return;
+          }
+
+          req.login(userFromDb, (err) => {
+              if (err) {
+                  next(err);
+              }
+              else {
+                  res.redirect("/");
+              }
+          });
+      })
+
+      .catch( (err) => {
+          next(err);
+      });
+});
+// ----------------------------------------------------------------------------
+// Facebook Login
+
+// Link to Facebook
+router.get("/facebook/login", passport.authenticate("facebook"));
+
+// Redirect based on success/failure
+router.get("/facebook/success",
+  passport.authenticate("facebook", {
+      successRedirect: "/",
+      failureRedirect: "/login"
+  })
+);
+// ----------------------------------------------------------------------------
+// Google Login
+
+// Link to Google
+router.get("/google/login",
+  passport.authenticate("google", {
+      scope: [
+          "https://www.googleapis.com/auth/plus.login",
+          "https://www.googleapis.com/auth/plus.profile.emails.read"
+      ]
+  })
+);
+
+// Redirect based on success/failure
+router.get("/google/success",
+  passport.authenticate("google", {
+      successRedirect: "/",
+      failureRedirect: "/login",
+  })
+);
+// ----------------------------------------------------------------------------
+// Log Out
+router.get("/logout", (req, res, next) => {
+    req.logout();
+    res.redirect("/");
 });
 // ----------------------------------------------------------------------------
 
