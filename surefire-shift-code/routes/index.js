@@ -6,4 +6,10 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+// About Shiftly page
+router.get('/about', (req, res, next) => {
+    res.render('general-views/learn-more');
+});
+// ----------------------------------------------------------------------------
+
 module.exports = router;

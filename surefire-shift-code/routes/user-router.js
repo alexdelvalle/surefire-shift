@@ -47,7 +47,7 @@ router.post("/process-signup", (req, res, next) => {
               email: req.body.signupEmail,
               encryptedPassword: scrambledPassword,
               shift: req.body.signupShift,
-              restDay: req.body.signupRestDay,
+              reliefDay: req.body.signupReliefDay,
               rank: req.body.signupRank
           });
 

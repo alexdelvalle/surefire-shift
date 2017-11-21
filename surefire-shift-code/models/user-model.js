@@ -55,18 +55,25 @@ const userSchema = new Schema(
           required: [true, "Please provide your shift."]
       },
 
-      // User's rest day (day of the week)
-      restDay: {
+      // User's relief day (day of the week)
+      reliefDay: {
           type: String,
-          required: [true, "Please provide your rest day"]
+          required: [true, "Please provide your relief day"]
       },
 
       // Groups user has joined
       groups: [],
+
+      // User's station
       station: {
         type: Number,
       },
 
+      // User's district
+      district: {
+        type: Number,
+      },
+      
       // User's direct messages
       messages: [],
   },
