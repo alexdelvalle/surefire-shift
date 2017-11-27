@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <title><%= title %></title>
 
+    <% if (!currentUser) { %>
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    <% } %>
 
     <link rel="stylesheet" href="/stylesheets/style.css">
 
+    <% if (currentUser) { %>
     <link rel="stylesheet" href="/codebase/dhtmlxscheduler.css">
+    <% } %>
 
   </head>
 
