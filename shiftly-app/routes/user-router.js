@@ -114,7 +114,7 @@ router.post("/process-login", (req, res, next) => {
 
 //-----------------------------------------------------------------------------
 // User Profile
-router.get("/my-profile", (req, res, next) => {
+router.get("/my-profile/:userId", (req, res, next) => {
     // redirect to log in if there is no logged in user
     if (req.user === undefined) {
         res.redirect("/login");
@@ -125,14 +125,14 @@ router.get("/my-profile", (req, res, next) => {
     res.render("user-views/user-profile");
 });
 
-
 // Step 2: receive edit submission
-router.post("/my-profile", (req, res, next) => {
-    req.user
+router.post("/my-profile/:userId", (req, res, next) => {
+
+  UserModel.findById(req.params.userId)
     .then((userFromDb) => {
-      userFromDb.set({
+      (userFromDb).set({
         fullName: req.body.editFullName,
-        photoUrl: req.body. photoImage,
+        photoUrl: req.body.photoImage,
         phoneNumber: req.body.editNumber,
         badgeNumber: req.body.editBadge,
         rank: req.body.editRank,
@@ -141,13 +141,12 @@ router.post("/my-profile", (req, res, next) => {
         station: req.body.editStation,
         district: req.body.editDistrict,
     });
-
-    req.user = userFromDb;
+    res.locals.currentUser = userFromDb;
 
     return userFromDb.save();
   })
   .then( () => {
-    res.redirect(`/my-profile`);
+    res.redirect(`/my-profile/${req.params.userId}`);
   })
   .catch( (err) => {
     if (err.errors) {
