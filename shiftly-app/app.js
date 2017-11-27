@@ -11,6 +11,10 @@ const passport     = require('passport');
 
 const app = express();
 
+// Connect to mongoDB
+var db = require('mongoskin').db("localhost/testdb", { w: 0});
+    db.bind('event');
+
 require('./config/mongoose-setup');
 require("./config/passport-setup");
 

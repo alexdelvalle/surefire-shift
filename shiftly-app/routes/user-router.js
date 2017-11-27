@@ -67,7 +67,7 @@ router.post("/process-signup", (req, res, next) => {
 // Email Login
 router.get("/login", (req, res, next) => {
     if (req.user) {
-        res.redirect("/");
+        res.redirect("/dashboard");
         return;
       }
     res.render("user-views/user-login");

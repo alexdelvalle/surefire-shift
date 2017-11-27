@@ -17,6 +17,7 @@
     "express-session": "^1.15.6",
     "fullcalendar": "^3.7.0",
     "mongoose": "^4.13.5",
+    "mongoskin": "^2.1.0",
     "morgan": "~1.7.0",
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
