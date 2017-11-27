@@ -11,6 +11,10 @@ const router       = express.Router();
 
 // ROUTES ---------------------------------------------------------------------
 router.get("/dashboard", (req, res, next) => {
+    if (!req.user) {
+        res.redirect("/");
+    }
+
     res.render("shift-views/dashboard");
 
 });

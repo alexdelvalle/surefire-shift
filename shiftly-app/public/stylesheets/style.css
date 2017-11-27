@@ -1,9 +1,25 @@
 html, body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin:0px;
+  margin:10px;
   padding:0px;
   height:100%;
   overflow:hidden;
+}
+
+#calendar-full{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 80px;
+}
+
+#day-tab {
+  left: 16px;
+  top: 0;
+}
+
+#month-tab {
+  left: -45px;
+  top: 0;
 }
 
 a {
