@@ -4,7 +4,7 @@
       <p class="error-message"> <%= errorMessage %> </p>
     <% } %>
 
-    <form id="form" method="post" action="/process-signup">
+    <form id="signup-form" method="post" action="/process-signup">
 
       <label for="full-name-input"> Enter your full name: </label>
       <input id="full-name-input" type="text" placeholder="e.g. Rudy Perez" name="signupFullName" />
@@ -33,6 +33,6 @@
       <button> Sign Me Up! </button>
     </form>
 
-    <p> Already have an account?
-      <a href="/login"> Log In! </a>
+    <p id="signup-login"> Already have an account?
+      <a href="/login"> Log In </a>
     </p>

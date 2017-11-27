@@ -5,6 +5,22 @@ body {
   margin: 0;
 }
 
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#signup-login {
+  text-align: center;
+}
+
+#signup-form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 400px;
+}
+
 .master-profile,
 .master-availability {
   width: 60%;
