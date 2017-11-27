@@ -15,6 +15,9 @@ const app = express();
 var db = require('mongoskin').db("localhost/testdb", { w: 0});
     db.bind('event');
 
+// Load environment variables from the ".env" file
+require("dotenv").config();
+
 require('./config/mongoose-setup');
 require("./config/passport-setup");
 
@@ -51,6 +54,14 @@ app.use( (req, res, next) => {
     // (otherwise your browser will hang)
     next();
 });
+
+
+
+
+
+
+
+
 
 
 // ROUTES ---------------------------------

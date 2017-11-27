@@ -41,8 +41,8 @@ passport.deserializeUser( (idFromSession, callback) => {
 //     //1st argument of FbStrategy --> settings object
 //     {
 //         // Facebook credentials
-//         clientID: "????", // App ID
-//         clientSecret: "????", // App Secret
+//         clientID: process.env.FACEBOOK_ID, // App ID
+//         clientSecret: process.env.FACEBOOK_SECRET, // App Secret
 //         // where to go after the log in is successful (one of our routes)
 //         callbackURL: "/facebook/success"
 //     },
@@ -89,8 +89,8 @@ passport.deserializeUser( (idFromSession, callback) => {
 //   new GoogleStrategy(
 //     // 1st argument of GoogleStrategy -> settings object
 //     {
-//       clientID: "????",
-//       clientSecret: "????",
+//       clientID: process.env.GOOGLE_ID,
+//       clientSecret: process.env.GOOGLE_SECRET,
 //
 //       // where to go after log in is successful (one of our routes)
 //       callbackURL: "/google/success",
