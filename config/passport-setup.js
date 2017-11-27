@@ -44,7 +44,8 @@ passport.deserializeUser( (idFromSession, callback) => {
 //         clientID: process.env.FACEBOOK_ID, // App ID
 //         clientSecret: process.env.FACEBOOK_SECRET, // App Secret
 //         // where to go after the log in is successful (one of our routes)
-//         callbackURL: "/facebook/success"
+//         callbackURL: "/facebook/success",
+//         proxy: true
 //     },
 //
 //     //2nd argument of FbStrategy --> callback

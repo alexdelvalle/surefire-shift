@@ -73,9 +73,9 @@ const userSchema = new Schema(
       district: {
         type: Number,
       },
-      
-      // User's direct messages
-      messages: [],
+
+      // User's available dates
+      dates: [],
   },
 
   // Date user was created/updated

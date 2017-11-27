@@ -11,7 +11,6 @@ const passport     = require('passport');
 
 const app = express();
 
-// Connect to mongoDB
 var db = require('mongoskin').db("localhost/testdb", { w: 0});
     db.bind('event');
 
@@ -53,15 +52,6 @@ app.use( (req, res, next) => {
     // (otherwise your browser will hang)
     next();
 });
-
-
-
-
-
-
-
-
-
 
 // ROUTES ---------------------------------
 
