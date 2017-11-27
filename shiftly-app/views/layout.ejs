@@ -4,29 +4,33 @@
     <meta charset="utf-8">
     <title><%= title %></title>
 
-    <link rel="stylesheet" href="/codebase/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/main.css" />
 
     <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <link rel="stylesheet" href="/codebase/dhtmlxscheduler.css">
 
   </head>
 
   <body onload="init();">
 
-    <header>
-      <h1> Shiftly </h1>
-    </header>
+    <div class="master-body">
 
-    <nav>
 
-      <% if (!currentUser) { %>
-          <a href="/">Home</a>
-          <a href="/signup">Sign Up</a>
-          <a href="/login">Log In</a>
-          <a href="/about">Learn More</a>
-      <% } %>
-    </nav>
+    <% if (currentUser) { %>
+    <div class="master-nav">
+        <ul class="sidenav">
+          <li><a class="active" href="/dashboard">My Dashboard</a></li>
+          <li><a href="/my-profile">My Profile</a></li>
+          <li><a href="#contact">My Groups</a></li>
+          <li><a href="/logout">Log Out</a></li>
+        </ul>
+    </div>
+    <% } %>
 
     <%- body %>
+
+    </div>
 
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
@@ -34,7 +38,11 @@
 
     <script src="/codebase/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
 
-    <script src='/javascripts/jscalendar.js'></script>
+    <script src="/javascripts/skel.min.js"></script>
+    <script src="/javascripts/util.js"></script>
+    <script src="/javascripts/main.js"></script>
+
+    <script src="/javascripts/jscalendar.js"></script>
 
   </body>
 </html>

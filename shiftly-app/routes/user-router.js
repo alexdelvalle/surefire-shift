@@ -111,6 +111,56 @@ router.post("/process-login", (req, res, next) => {
           next(err);
       });
 });
+
+//-----------------------------------------------------------------------------
+// User Profile
+router.get("/my-profile", (req, res, next) => {
+    // redirect to log in if there is no logged in user
+    if (req.user === undefined) {
+        res.redirect("/login");
+
+        return;
+    }
+
+    res.render("user-views/user-profile");
+});
+
+
+// Step 2: receive edit submission
+router.post("/my-profile", (req, res, next) => {
+    req.user
+    .then((userFromDb) => {
+      userFromDb.set({
+        fullName: req.body.editFullName,
+        photoUrl: req.body. photoImage,
+        phoneNumber: req.body.editNumber,
+        badgeNumber: req.body.editBadge,
+        rank: req.body.editRank,
+        shift: req.body.editShift,
+        reliefDay: req.body.editRDay,
+        station: req.body.editStation,
+        district: req.body.editDistrict,
+    });
+
+    req.user = userFromDb;
+
+    return userFromDb.save();
+  })
+  .then( () => {
+    res.redirect(`/my-profile`);
+  })
+  .catch( (err) => {
+    if (err.errors) {
+      res.locals.validationErrors = err.errors;
+      res.render("user-views/user-profile");
+    }
+    else {
+      next(err);
+    }
+  });
+});
+
+
 // ----------------------------------------------------------------------------
 // Facebook Login
 

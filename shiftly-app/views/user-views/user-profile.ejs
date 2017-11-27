@@ -1,0 +1,51 @@
+<div class="master-profile">
+
+  <h2> My Profile </h2>
+
+  <p>
+    Your email: <b><%= currentUser.email %></b>
+    <br />
+    (Email address cannot be changed for security reasons.)
+  </p>
+
+  <form id="form" method="post" action="/my-profile">
+    <label for="full-name-input"> Full Name </label>
+    <input id="full-name-input" type="text" placeholder="e.g. Khal Drogo" name="editFullName" value="<%= currentUser.fullName %>" />
+    <br />
+
+    <label for="photo-input"> Image URL </label>
+    <input id="photo-input" type="text" placeholder="e.g. http://example.com/myphoto.gif" name="photoImage" value="<%= currentUser.photoUrl %>" />
+    <br />
+
+    <label for="number-input"> Phone Number </label>
+    <input id="number-input" type="number" placeholder="e.g. 305-888-8888" name="editNumber" value="<%= currentUser.phoneNumber %>" />
+    <br />
+
+    <label for="badge-input"> Badge Number </label>
+    <input id="badge-input" type="number" placeholder="e.g. 12345" name="editBadge" value="<%= currentUser.badgeNumber %>" />
+    <br />
+
+    <label for="rank-input"> Rank </label>
+    <input id="rank-input" type="text" placeholder="e.g. Firefighter" name="editRank" value="<%= currentUser.rank %>" />
+    <br />
+
+    <label for="shift-input"> Shift Cycle </label>
+    <input id="shift-input" type="text" placeholder="e.g. C" name="editShift" value="<%= currentUser.shift %>" />
+    <br />
+
+    <label for="rday-input"> Relief Day </label>
+    <input id="rday-input" type="text" placeholder="e.g. Wednesday" name="editRDay" value="<%= currentUser.reliefDay %>" />
+    <br />
+
+    <label for="station-input"> Station </label>
+    <input id="station-input" type="number" placeholder="e.g. 9" name="editStation" value="<%= currentUser.station %>" />
+    <br />
+
+    <label for="district-input"> District </label>
+    <input id="district-input" type="number" placeholder="e.g. 2" name="editDistrict" value="<%= currentUser.district %>" />
+    <br />
+
+    <button> Save Changes </button>
+  </form>
+
+</div>
