@@ -9,7 +9,12 @@ const availabilitySchema = new Schema ({
       type: Date,
       required: [true, "Please specify a date."]
     },
-
+    user: {
+      type: Schema.Types.ObjectId
+    },
+    description: {
+      type: String,
+    }
 });
 
 const AvailabilityModel = mongoose.model("Availability", availabilitySchema);

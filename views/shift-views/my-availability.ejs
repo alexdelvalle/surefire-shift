@@ -1,16 +1,16 @@
-<div class="master-availability">
+<div class="date-edit">
 
-  <h2> Add Availability</h2>
-  <p>
-    Please specify which day you are available to cover another employee's shift. Once saved, other employees may reach out to you to coordinate a shift swap.
-  </p>
+  <h2> List Yourself as Available </h2>
 
-  <form id="form" method="post" action="/dashboard">
-    <label for="date-input"> Date you are available to work: </label>
+  <form id="add-form" method="post" action="/dashboard">
+    <label for="date-input">
+      <p> Here you can list yourself as available for other employees to reach out to you to cover their shift.</p>
+      <p> Which day are you willing to work? </p>
+    </label>
     <input id="date-input" type="date" name="addDate" />
     <br />
 
-    <button> Save New Availability </button>
+    <button> Update Your Calendar </button>
   </form>
 
 </div>

@@ -4,7 +4,7 @@
       <p class="error-message"> <%= errorMessage %> </p>
     <% } %>
 
-    <form id="form" method="post" action="/process-login">
+    <form id="login-form" method="post" action="/process-login">
 
       <label for="email-input"> Email </label>
       <input id="email-input" type="email" placeholder="e.g. alex@gmail.com" name="loginEmail" />
@@ -17,6 +17,6 @@
       <button> Log in </button>
     </form>
 
-    <p> Don't have an account?
+    <p id="no-account"> Don't have an account?
       <a href="/signup"> Sign up! </a>
     </p>

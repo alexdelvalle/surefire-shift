@@ -2916,9 +2916,9 @@
 
 	#banner {
 		padding: 8em 0 9em 0;
-		background-image: url(../../images/banner.jpg);
+		background-image: url(../images/computercal.jpg);
 		background-size: cover;
-		background-position: bottom;
+		background-position: top;
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		text-align: center;

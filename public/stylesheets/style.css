@@ -8,13 +8,19 @@ body {
 h2 {
   text-align: center;
   margin-top: 20px;
+  font-size: 28px;
 }
 
-#signup-login {
+#signup-login,
+#no-account {
   text-align: center;
 }
 
-#signup-form {
+#signup-form,
+#login-form,
+#add-form,
+#request-form,
+#profile-form {
   display: flex;
   flex-direction: column;
   margin: 10px auto;
@@ -22,7 +28,7 @@ h2 {
 }
 
 .master-profile,
-.master-availability {
+.date-edit {
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -33,7 +39,9 @@ h2 {
   width: 75%;
   display: flex;
   flex-direction: row-reverse;
-  margin-left: 220px;
+  align-content: center;
+  margin-left: 250px;
+  padding-top: 20px;
 }
 
 #day-tab {
@@ -50,6 +58,12 @@ a {
   color: #00B7FF;
 }
 
+.sidenav img {
+  width: 100px;
+  margin: 20px auto 0;
+  padding-bottom: 20px;
+}
+
 ul.sidenav {
     list-style-type: none;
     margin: 0;
@@ -59,6 +73,10 @@ ul.sidenav {
     position: fixed;
     height: 100%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 ul.sidenav li a {
