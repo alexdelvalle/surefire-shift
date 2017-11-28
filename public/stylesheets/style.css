@@ -35,6 +35,10 @@ h2 {
   margin-left: 347px;
 }
 
+.master-profile > p {
+  text-align: center;
+}
+
 .calendar-full{
   width: 75%;
   display: flex;
