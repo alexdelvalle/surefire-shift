@@ -12,6 +12,10 @@ h2 {
   color: #6fbf92;
 }
 
+.nav-logo h2 {
+  color: #FFFFFF;
+}
+
 #signup-login,
 #no-account {
   text-align: center;
